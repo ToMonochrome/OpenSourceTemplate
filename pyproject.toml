@@ -1,0 +1,28 @@
+[project]
+name = "open-source-structure"
+version = "0.1.0"
+description = "A cookiecutter starter template for running a new open source Python project with uv, Make and GitHub Actions."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "ToMonochrome" }]
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "cookiecutter>=2.6",
+    "pytest>=8",
+    "pytest-cookies>=0.4",
+    "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+# The cookiecutter template directory contains Jinja syntax that is not valid
+# Python/TOML; "*cookiecutter*" matches "{{cookiecutter.project_slug}}".
+exclude = ["*cookiecutter*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
